@@ -1,0 +1,32 @@
+<mvc:View controllerName="sample.MessageHandler.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<Panel headerText="Generate messages">
+							<FlexBox height="100px" alignItems="Center" justifyContent="Center">
+								<Button text="Success" type="Transparent" class="sapUiSmallMarginEnd" press=".generateMessage($event, 'Success')"/>
+								<Button text="Warning" type="Transparent" class="sapUiSmallMarginEnd" press=".generateMessage($event, 'Warning')"/>
+								<Button text="Error" type="Transparent" press=".generateMessage($event, 'Error')"/>
+							</FlexBox>
+						</Panel>
+						<Panel headerText="Settings">
+							<FlexBox height="100px" alignItems="Center" justifyContent="Center">
+								<ToggleButton type="Transparent" text="Clear existing messages: {viewmodel>/bClear}" class="sapUiSmallMarginEnd"
+									pressed="{viewmodel>/bClear}"/>
+								<ToggleButton type="Transparent" text="Open when error: {viewmodel>/bOpenWhenError}" pressed="{viewmodel>/bOpenWhenError}"/>
+							</FlexBox>
+						</Panel>
+					</content>
+					<footer>
+						<OverflowToolbar>
+							<Button id="messagePopoverBtn" icon="{messagePopover>/icon}" type="{messagePopover>/type}" text="{messagePopover>/text}"
+								press=".onMessagePopoverPress" ariaHasPopup="Dialog" tooltip="{i18n>messages}"/>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
